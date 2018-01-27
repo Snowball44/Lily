@@ -34,10 +34,7 @@ public class Lily extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-        facade.setWon("Heart");
-        facade.setCompleted("Heart");
-        System.out.println(facade.getWon("Heart"));
-        System.out.println(facade.getCompleted("Heart"));
+       
         
         
     }
