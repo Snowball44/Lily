@@ -15,9 +15,20 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Circle;
 import Game_data.GameFacade;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 /**
  *
  * @author Kim Christensen
@@ -48,6 +59,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button labyrinthEndConfirmButton;
     
+    MediaPlayer mediaPlayer;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         labyrinthPlayer.requestFocus();
@@ -55,6 +67,11 @@ public class FXMLDocumentController implements Initializable {
         score = 0;
         malwareLeft = 15;
         startTime = System.currentTimeMillis() / 1000;
+        String musicFile = "heartbeat.wav";     // For example
+
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
     }    
 
     @FXML
@@ -89,6 +106,9 @@ public class FXMLDocumentController implements Initializable {
                 labyrinthFood.relocate(newX, newY);
             } 
             while ((labyrinthFood.getLayoutX() > 842 || labyrinthFood.getLayoutX() <0) || (labyrinthFood.getLayoutY()> 592 || labyrinthFood.getLayoutY()<0));
+        }
+        if(totalTime > 10){
+            mediaPlayer.stop();
         }
         if(totalTime >= 60){
             labyrinthEndPane.toFront();
