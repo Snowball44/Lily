@@ -187,7 +187,7 @@ public class VendeSpilController implements Initializable {
                 clickedImageView2 = event.getPickResult().getIntersectedNode();
                 System.out.println("clicked this: " + clickedImageView2);
                 CheckArray(saveClicks,mCount, saveClicks[0], event.getPickResult().getIntersectedNode().getId());
-                //check bricks
+                //hvis billederne ikke passer
                 if(!EvalBricks(clickedImageView1.getId(), clickedImageView2.getId()))
                 {
                     System.out.println("NO MATCH!!!!");
@@ -200,20 +200,27 @@ public class VendeSpilController implements Initializable {
                             vendeBilleder.get(i).imgv.setImage(blackImage);
                         }
                     }
-                    
-                    
                 }
+                //hvis begge billeder matcher
                 else if(EvalBricks(clickedImageView1.getId(), clickedImageView2.getId()))
                 {
-                    
-                    
-                    for (int i = 0; i < 7; i++) {
-                        if(vendeBilleder.get(i).navn.equals(clickedImageView1.getId())
-                            && vendeBilleder.get(i).navn.equals(clickedImageView2.getId()))
+                    for (int i = 0; i < 8; i++) 
+                    {
+                        if(clickedImageView1.getId().equals(vendeBilleder.get(i).navn)
+                                || clickedImageView2.getId().equals(vendeBilleder.get(i).navn))
                         {
                             vendeBilleder.get(i).hasBeenFlipped = true;
                         }
+                        
+                        if(vendeBilleder.get(i).hasBeenFlipped)
+                        {
+                            clickedImageView1.setVisible(false);
+                            clickedImageView2.setVisible(false);
+                            
+                        }
+                        
                     }
+                    
                     System.out.println("MATCH!!");
                 }
                 
