@@ -203,8 +203,17 @@ public class VendeSpilController implements Initializable {
                     
                     
                 }
-                else{
+                else if(EvalBricks(clickedImageView1.getId(), clickedImageView2.getId()))
+                {
                     
+                    
+                    for (int i = 0; i < 7; i++) {
+                        if(vendeBilleder.get(i).navn.equals(clickedImageView1.getId())
+                            && vendeBilleder.get(i).navn.equals(clickedImageView2.getId()))
+                        {
+                            vendeBilleder.get(i).hasBeenFlipped = true;
+                        }
+                    }
                     System.out.println("MATCH!!");
                 }
                 
@@ -218,6 +227,12 @@ public class VendeSpilController implements Initializable {
         //String tempstr = event.getPickResult().getIntersectedNode().getId();
         
         System.out.println(event.getPickResult().getIntersectedNode().getId());
+        
+        for(VendeBillede vende : vendeBilleder)
+        {
+            System.out.println(vende.hasBeenFlipped);
+        }
+        
     }
     
     
