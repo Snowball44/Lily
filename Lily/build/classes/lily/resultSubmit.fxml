@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="595.0" prefWidth="842.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="lily.ResultSubmitController">
+   <children>
+      <TextField fx:id="nameField" layoutX="197.0" layoutY="498.0" prefHeight="40.0" prefWidth="200.0" promptText="Enter your name" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="200.0">
+         <font>
+            <Font name="Helvetica" size="20.0" />
+         </font>
+      </TextField>
+      <Button fx:id="submitButton" layoutX="405.0" layoutY="491.0" mnemonicParsing="false" onAction="#submitAction" prefHeight="40.0" prefWidth="200.0" text="Submit" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="200.0">
+         <font>
+            <Font name="Helvetica Light" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

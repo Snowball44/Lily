@@ -48,11 +48,11 @@ public class ResultSubmitController implements Initializable {
         scene.getRoot().requestFocus();
     } 
 
-    @FXML
+    /*@FXML
     private void submitAction(ActionEvent event) {
         String playername = nameField.getText();
         System.out.println(playername + "controller");
         game.submitHighScore(playername);
         changeScene("mainMenu");
-    }
+    }*/
 }
