@@ -10,15 +10,6 @@
 
 <StackPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lily.FXMLDocumentController">
    <children>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <Circle fx:id="labyrinthPlayer" fill="DODGERBLUE" focusTraversable="true" layoutX="350.0" layoutY="351.0" onKeyPressed="#labyrinthPlayerKeyPressed" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="labyrinthFood" fill="#57ff1f" layoutX="350.0" layoutY="450.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-=======
-      <Circle fx:id="labyrinthPlayer" fill="DODGERBLUE" focusTraversable="true" layoutX="420.0" layoutY="560.0" onKeyPressed="#labyrinthPlayerKeyPressed" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="labyrinthFood" fill="#57ff1f" layoutX="420.0" layoutY="310.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
->>>>>>> 2167fc7b90d39ade5e8b75fe20a4c96d18d2b5ee
-=======
       <AnchorPane fx:id="labyrinthEndPane" prefHeight="200.0" prefWidth="200.0" visible="false">
          <children>
             <TextArea fx:id="labyrinthEndTextArea" editable="false" layoutX="23.0" layoutY="198.0" prefHeight="267.0" prefWidth="805.0">
@@ -60,6 +51,6 @@
             </Label>
          </children>
       </AnchorPane>
->>>>>>> cb3ea2c78423a8bebc6a069ea47d8296db79b380
    </children>
 </StackPane>
+

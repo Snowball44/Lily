@@ -190,9 +190,9 @@ public class VendeSpilController implements Initializable {
                 //hvis billederne ikke passer
                 if(!EvalBricks(clickedImageView1.getId(), clickedImageView2.getId()))
                 {
-                    System.out.println("NO MATCH!!!!");
+                    //System.out.println("NO MATCH!!!!");
                     
-                    for (int i = 0; i < 7; i++) 
+                    for (int i = 0; i < 8; i++) 
                     {
                         if(vendeBilleder.get(i).navn.equals(clickedImageView1.getId())
                                 || vendeBilleder.get(i).navn.equals(clickedImageView2.getId()))
@@ -200,6 +200,7 @@ public class VendeSpilController implements Initializable {
                             vendeBilleder.get(i).imgv.setImage(blackImage);
                         }
                     }
+                    ClearData();
                 }
                 //hvis begge billeder matcher
                 else if(EvalBricks(clickedImageView1.getId(), clickedImageView2.getId()))
@@ -216,29 +217,26 @@ public class VendeSpilController implements Initializable {
                         {
                             clickedImageView1.setVisible(false);
                             clickedImageView2.setVisible(false);
-                            
                         }
-                        
                     }
-                    
-                    System.out.println("MATCH!!");
+                    //System.out.println("MATCH!!");
+                    ClearData();
                 }
-                
             }
             
-            for (int i = 0; i < saveClicks.length; i++) {
+            /*for (int i = 0; i < saveClicks.length; i++) {
                 System.out.println(Arrays.toString(saveClicks));
-            }
+            }*/
         }
                 
         //String tempstr = event.getPickResult().getIntersectedNode().getId();
         
-        System.out.println(event.getPickResult().getIntersectedNode().getId());
+        /*System.out.println(event.getPickResult().getIntersectedNode().getId());
         
         for(VendeBillede vende : vendeBilleder)
         {
             System.out.println(vende.hasBeenFlipped);
-        }
+        }*/
         
     }
     
