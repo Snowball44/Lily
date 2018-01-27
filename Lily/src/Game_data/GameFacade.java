@@ -27,7 +27,7 @@ public class GameFacade implements InterfaceGame{
 
     @Override
     public void setWon(String name, boolean won) {
-        factory.getWon(name);
+        factory.setWon(name, won);
         
     }
 
