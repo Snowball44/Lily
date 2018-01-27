@@ -8,7 +8,6 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-
 <StackPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lily.FXMLDocumentController">
    <children>
 <<<<<<< HEAD
@@ -44,7 +43,7 @@
                   <Font size="33.0" />
                </font>
             </Label>
-            <Label layoutX="174.0" layoutY="121.0" text="Stop the red malware (70 seconds) ">
+            <Label layoutX="174.0" layoutY="121.0" text="Stop the red malware (60 seconds) ">
                <font>
                   <Font size="33.0" />
                </font>
