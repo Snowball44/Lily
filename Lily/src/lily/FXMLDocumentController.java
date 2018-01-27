@@ -44,16 +44,16 @@ public class FXMLDocumentController implements Initializable {
         System.out.println(labyrinthPlayer.getBoundsInParent());
         System.out.println(labyrinthFood.getBoundsInParent());
         if(event.getCode() == KeyCode.UP){
-            labyrinthPlayer.setTranslateY(labyrinthPlayer.getTranslateY()-10);
+            labyrinthPlayer.setTranslateY(labyrinthPlayer.getTranslateY()-5);
         }
         else if(event.getCode() == KeyCode.DOWN){
-            labyrinthPlayer.setTranslateY(labyrinthPlayer.getTranslateY()+10);
+            labyrinthPlayer.setTranslateY(labyrinthPlayer.getTranslateY()+5);
         }
         else if(event.getCode() == KeyCode.LEFT){
-            labyrinthPlayer.setTranslateX(labyrinthPlayer.getTranslateX()-10);
+            labyrinthPlayer.setTranslateX(labyrinthPlayer.getTranslateX()-5);
         }
         else if(event.getCode() == KeyCode.RIGHT){
-            labyrinthPlayer.setTranslateX(labyrinthPlayer.getTranslateX()+10);
+            labyrinthPlayer.setTranslateX(labyrinthPlayer.getTranslateX()+5);
         }
         
         if(labyrinthPlayer.getBoundsInParent().getMaxX() == labyrinthFood.getBoundsInParent().getMaxX() && labyrinthPlayer.getBoundsInParent().getMaxY() == labyrinthFood.getBoundsInParent().getMaxY()){
@@ -64,12 +64,11 @@ public class FXMLDocumentController implements Initializable {
             do {                
                 newX = (int) (Math.random() * 10) * 40;
                 newY = (int) (Math.random() * 10) * 40;
-                labyrinthFood.setTranslateX(newX);
-                labyrinthFood.setTranslateY(newY);
-                System.out.println(labyrinthFood.getBoundsInParent().getMaxX());
-                System.out.println(labyrinthFood.getBoundsInParent().getMaxY());
+                labyrinthFood.relocate(newX, newY);
+                System.out.println(newX);
+                System.out.println(newY);
             } 
-            while ((labyrinthFood.getBoundsInParent().getMaxX() > 842 && labyrinthFood.getBoundsInParent().getMaxX() <0) || (labyrinthFood.getBoundsInParent().getMaxY() > 592 && labyrinthFood.getBoundsInParent().getMaxY()<0));
+            while ((labyrinthFood.getLayoutX() > 842 || labyrinthFood.getLayoutX() <0) || (labyrinthFood.getLayoutY()> 592 || labyrinthFood.getLayoutY()<0));
         }
     }
     
