@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import static lily.MainMenuController.scene;
 
 /**
  * FXML Controller class
@@ -43,8 +44,8 @@ public class ResultSubmitController implements Initializable {
     }    
     
     public void changeScene(String newScene) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(newScene + ".fxml"));
-        
+        root = FXMLLoader.load(getClass().getResource(newScene + ".fxml"));
+        scene = submitButton.getScene();
         scene.setRoot(root);
         scene.getRoot().requestFocus();
     } 
