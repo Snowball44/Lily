@@ -78,9 +78,9 @@ public class VendeSpilController implements Initializable {
         orangeImage = new Image(getClass().getResource("/Assets/orange.png")
                     .toString());
         greenImage = new Image(getClass().getResource("/Assets/green.png")
-                    .toString());;
+                    .toString());
         redImage = new Image(getClass().getResource("/Assets/red.png")
-                    .toString());;
+                    .toString());
         blueImage = new Image(getClass().getResource("/Assets/blue.png")
                     .toString());;
         blackImage = new Image(getClass().getResource("/Assets/black.png")
@@ -191,15 +191,20 @@ public class VendeSpilController implements Initializable {
                 if(!EvalBricks(clickedImageView1.getId(), clickedImageView2.getId()))
                 {
                     System.out.println("NO MATCH!!!!");
-                    if(vendeBilleder.get(0).navn.equals(clickedImageView1))
+                    
+                    for (int i = 0; i < 7; i++) 
                     {
-                        vendeBilleder.get(0).imgv.setImage(orangeImage);
+                        if(vendeBilleder.get(i).navn.equals(clickedImageView1.getId())
+                                || vendeBilleder.get(i).navn.equals(clickedImageView2.getId()))
+                        {
+                            vendeBilleder.get(i).imgv.setImage(blackImage);
+                        }
                     }
                     
                     
-                    //clickedImageView1.getClass(). //.setImage(image);
                 }
                 else{
+                    
                     System.out.println("MATCH!!");
                 }
                 
