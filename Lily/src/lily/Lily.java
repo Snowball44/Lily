@@ -5,6 +5,8 @@
  */
 package lily;
 
+import Game_data.GameFacade;
+import java.util.Set;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,10 +18,10 @@ import javafx.stage.Stage;
  * @author Kim Christensen
  */
 public class Lily extends Application {
-    
+    static GameFacade facade = new GameFacade();
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
         
         Scene scene = new Scene(root);
         
@@ -32,6 +34,12 @@ public class Lily extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        facade.setWon("Heart", true);
+        facade.setCompleted("Heart", true);
+        System.out.println(facade.getWon("Heart"));
+        System.out.println(facade.getCompleted("Heart"));
+        
+        
     }
     
 }
