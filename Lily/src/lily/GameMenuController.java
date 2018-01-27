@@ -63,7 +63,6 @@ public class GameMenuController implements Initializable {
         root = FXMLLoader.load(getClass().getResource(newScene + ".fxml"));
         scene = image.getScene();
         scene.setRoot(root);
-        scene.getRoot().requestFocus();
     }
 
     @FXML
