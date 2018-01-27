@@ -5,6 +5,7 @@
  */
 package lily;
 
+import Game_data.GameFacade;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,12 +32,17 @@ public class FXMLSplashController implements Initializable {
     private ImageView view;
 
     private final Image[] mainBack = new Image[4];
+    private final Image[] endings = new Image[4];
+    
     
     private int checkArray = 0;
     
     static Scene scene;
 
     Parent root;
+    
+    
+    static GameFacade facade = new GameFacade();
     /**
      * Initializes the controller class.
      */
@@ -58,6 +64,17 @@ public class FXMLSplashController implements Initializable {
         if (checkArray < mainBack.length ) {
             view.setImage(mainBack[checkArray]);
             checkArray++;
+        } else if (facade.getCompleted("Legs") && facade.getCompleted("Brain") &&facade.getCompleted("Heart")) {
+            if (facade.getWon("Legs") && facade.getWon("Brain") && facade.getWon("Heart")) {
+                //Working
+            } else if (facade.getWon("Brain") && facade.getWon("Heart")) {
+                //Paralyzed
+            } else if (facade.getWon("Heart")) {
+                //Braindamage
+            } else {
+                //Dead
+            }
+                changeScene("resultSubmit");
         } else {
             changeScene("GameMenu");
         }
