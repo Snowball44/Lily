@@ -10,7 +10,6 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -31,12 +30,21 @@ public class VendeSpilController implements Initializable {
         // TODO
         //gridPane.add(new ImageView());
         
-    }    
+    }
+    
+    
     
     @FXML
     private void clickKort(MouseEvent event) 
-    {
-        System.out.println(event.getTarget());
+    {    
+        
+        
+        
+        
+        
+        System.out.println(event.getPickResult().getIntersectedNode().getId());
     }
+    
+    
     
 }

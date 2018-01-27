@@ -21,44 +21,44 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fitHeight="142.0" fitWidth="207.0" pickOnBounds="true" scaleX="2.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <image>
-                  <Image url="@../Assets/orange.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="362.0" pickOnBounds="true" GridPane.columnIndex="1">
+            <ImageView fx:id="green1" fitHeight="150.0" fitWidth="362.0" pickOnBounds="true" GridPane.columnIndex="1">
                <image>
                   <Image url="@../Assets/green.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="420.0" pickOnBounds="true" GridPane.rowIndex="1">
+            <ImageView fx:id="blue1" fitHeight="150.0" fitWidth="420.0" pickOnBounds="true" GridPane.rowIndex="1">
                <image>
                   <Image url="@../Assets/blue.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="360.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <ImageView fx:id="red1" fitHeight="150.0" fitWidth="360.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <image>
                   <Image url="@../Assets/red.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="421.0" pickOnBounds="true" GridPane.rowIndex="2">
+            <ImageView fx:id="green2" fitHeight="150.0" fitWidth="421.0" pickOnBounds="true" GridPane.rowIndex="2">
                <image>
                   <Image url="@../Assets/green.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="420.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <ImageView fx:id="orange2" fitHeight="150.0" fitWidth="420.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <image>
                   <Image url="@../Assets/orange.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="423.0" pickOnBounds="true" GridPane.rowIndex="3">
+            <ImageView fx:id="blue2" fitHeight="150.0" fitWidth="423.0" pickOnBounds="true" GridPane.rowIndex="3">
                <image>
                   <Image url="@../Assets/blue.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="367.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <ImageView fx:id="red2" fitHeight="150.0" fitWidth="367.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <image>
                   <Image url="@../Assets/red.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="orange1" fitHeight="150.0" fitWidth="421.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../Assets/orange.png" />
                </image>
             </ImageView>
          </children>
