@@ -11,13 +11,39 @@ import Acquaintance.InterfaceGame;
  */
 public class GameFacade implements InterfaceGame{
 
-    EndingResults finalResults = new EndingResults();
+    Mess factory= new Mess();
     
     
     @Override
     public void addResult(String name) {
         
-        finalResults.addResult(name, name);
+        factory.finalResults.addResult(name, name);
     }
-    
+
+    @Override
+    public String printResults() {
+        return factory.finalResults.getResultsList();
+    }
+
+    @Override
+    public void setWon(String name, boolean won) {
+        factory.getWon(name);
+        
+    }
+
+    @Override
+    public void setCompleted(String name, boolean completed) {
+        factory.setCompleted(name, completed);
+    }
+
+    @Override
+    public boolean getWon(String name) {
+        return factory.getWon(name);
+    }
+
+    @Override
+    public boolean getCompleted(String name) {
+        return factory.getCompleted(name);
+    }
+
 }

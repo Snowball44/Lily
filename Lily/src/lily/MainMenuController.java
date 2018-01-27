@@ -53,7 +53,7 @@ public class MainMenuController implements Initializable {
          if (!helpDrawed) {
             openWindow();
 
-            popupText.setText(EndingResults.getHighscoreList());
+            popupText.setText();
             background.getChildren().add(popupText);
             helpDrawed = true;
         } else {

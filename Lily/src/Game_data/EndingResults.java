@@ -35,7 +35,7 @@ public class EndingResults {
     }
 
     public static ArrayList<EndingResult> getScores() {
-        loadScoreFile();
+        loadResultFile();
         sort();
         return results;
     }
@@ -101,7 +101,7 @@ public class EndingResults {
         }
     }
 
-    static String getHighscoreList() {
+    public String getResultsList() {
         String highscoreList = "";
         
         ArrayList<EndingResult> scores;

@@ -5,24 +5,70 @@
  */
 package Game_data;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Zuzu
  */
 public class Mess {
     
-    public EndingResults finalResults;
-    public Mission legs;
-    public Mission brain;
-    public Mission heart;
+    EndingResults finalResults;
+    ArrayList<Mission> missions = new ArrayList<>();
+    
     
     Mess(){
         finalResults = new EndingResults();
-        legs = new Mission("Legs");
-        brain = new Mission("brain");
-        heart = new Mission("Heart");
-        
+        missions.add(new Mission("Legs"));
+        missions.add(new Mission("brain"));
+        missions.add(new Mission("Heart"));
     }
     
+   
+    public void setWon(String name, boolean won) {
+        Mission seeMission;
+        for (int i = 0; i < missions.size(); i++) {
+            seeMission = (Mission) missions.get(i);
+            if (seeMission.getName().equalsIgnoreCase(name)) {
+                seeMission.setWon(won);
+                break;
+            }
+        }
+    }
+
+   
+    public void setCompleted(String name, boolean completed) {
+        Mission seeMission;
+        for (int i = 0; i < missions.size(); i++) {
+            seeMission = (Mission) missions.get(i);
+            if (seeMission.getName().equalsIgnoreCase(name)) {
+                seeMission.setWon(completed);
+                break;
+            }
+        }
+    }
+
+   
+    public boolean getWon(String name) {
+        Mission seeMission = null;
+        for (int i = 0; i < missions.size(); i++) {
+            seeMission = (Mission) missions.get(i);
+            if (seeMission.getName().equalsIgnoreCase(name)) {
+               break;           
+            }
+        }
+        return seeMission.getWon();
+    }
+
     
+    public boolean getCompleted(String name) {
+        Mission seeMission = null;
+        for (int i = 0; i < missions.size(); i++) {
+            seeMission = (Mission) missions.get(i);
+            if (seeMission.getName().equalsIgnoreCase(name)) {
+                break;
+            }
+        }
+        return seeMission.getCompleted();
+    }
 }
