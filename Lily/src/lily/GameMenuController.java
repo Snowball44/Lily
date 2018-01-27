@@ -54,7 +54,7 @@ public class GameMenuController implements Initializable {
     @FXML
     private void legsAction(MouseEvent event) throws IOException {
         if (!facade.getCompleted("Legs") && !facade.getCompleted("brain") && !facade.getCompleted("Heart")) {
-            changeScene("mainMenu", legs);
+            changeScene("FXMLDocument", legs);
         }
 
     }
