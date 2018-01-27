@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="595.0" maxWidth="842.0" minHeight="0.0" minWidth="0.0" prefHeight="595.0" prefWidth="842.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lily.FXMLDocumentController">
+<StackPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lily.FXMLDocumentController">
    <children>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <Circle fx:id="labyrinthPlayer" fill="DODGERBLUE" focusTraversable="true" layoutX="350.0" layoutY="351.0" onKeyPressed="#labyrinthPlayerKeyPressed" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="labyrinthFood" fill="#57ff1f" layoutX="350.0" layoutY="450.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
@@ -12,5 +18,48 @@
       <Circle fx:id="labyrinthPlayer" fill="DODGERBLUE" focusTraversable="true" layoutX="420.0" layoutY="560.0" onKeyPressed="#labyrinthPlayerKeyPressed" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="labyrinthFood" fill="#57ff1f" layoutX="420.0" layoutY="310.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
 >>>>>>> 2167fc7b90d39ade5e8b75fe20a4c96d18d2b5ee
+=======
+      <AnchorPane fx:id="labyrinthEndPane" prefHeight="200.0" prefWidth="200.0" visible="false">
+         <children>
+            <TextArea fx:id="labyrinthEndTextArea" editable="false" layoutX="23.0" layoutY="198.0" prefHeight="267.0" prefWidth="805.0">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </TextArea>
+            <Button fx:id="labyrinthEndConfirmButton" layoutX="373.0" layoutY="463.0" mnemonicParsing="false" text="CONFIRM" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="labyrinthGamePane" maxHeight="595.0" maxWidth="842.0" minHeight="0.0" minWidth="0.0" prefHeight="595.0" prefWidth="842.0">
+         <children>
+            <Circle fx:id="labyrinthPlayer" fill="#23ff1f" focusTraversable="true" layoutX="420.0" layoutY="480.0" onKeyPressed="#labyrinthPlayerKeyPressed" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="labyrinthFood" fill="#ff2121" layoutX="420.0" layoutY="320.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label layoutX="350.0" layoutY="41.0" text="TIME:">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <Label fx:id="labyrinthTimeLabel" layoutX="459.0" layoutY="41.0" text="0">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <Label layoutX="174.0" layoutY="121.0" text="Stop the red malware (60 seconds) ">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <Label fx:id="labyrinthMalwareLeftLabel" layoutX="372.0" layoutY="191.0" text="15">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <Label layoutX="421.0" layoutY="191.0" text="LEFT!">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+>>>>>>> cb3ea2c78423a8bebc6a069ea47d8296db79b380
    </children>
-</AnchorPane>
+</StackPane>
