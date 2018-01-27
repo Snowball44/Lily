@@ -8,15 +8,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleButtonAction" prefHeight="595.0" prefWidth="842.0" style="overflow: hidden; -fx-background-image: url('Assets/backgroundMainMenu.png'); -fx-background-size: stretch;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lily.MainMenuController">
+<AnchorPane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="842.0" style="-fx-background-image: url('Assets/backgroundMainMenu.png'); -fx-background-size: stretch; overflow: hidden;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lily.MainMenuController">
    <children>
-      <ImageView fx:id="view" fitHeight="595.0" fitWidth="842.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Button fx:id="endingResults" layoutX="497.0" layoutY="495.0" mnemonicParsing="false" onAction="#endingResultsButtonAction" prefHeight="25.0" prefWidth="200.0" text="Ending results" AnchorPane.rightAnchor="200.0">
+      <Button fx:id="endingResults" layoutX="497.0" layoutY="495.0" mnemonicParsing="false" onAction="#endingResultsButtonAction" prefHeight="25.0" prefWidth="200.0" text="Ending results" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="200.0">
          <font>
             <Font name="Helvetica Light" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="playButton" layoutX="221.0" layoutY="495.0" mnemonicParsing="false" onAction="#playButtonAction" prefHeight="25.0" prefWidth="200.0" text="Player" AnchorPane.leftAnchor="200.0">
+      <Button fx:id="playButton" layoutX="221.0" layoutY="495.0" mnemonicParsing="false" onAction="#playButtonAction" prefHeight="25.0" prefWidth="200.0" text="Player" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="200.0">
          <font>
             <Font name="Helvetica Light" size="20.0" />
          </font>

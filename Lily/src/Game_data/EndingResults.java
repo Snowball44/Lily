@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lily;
+package Game_data;
 
+import Game_data.EndingResult;
+import Game_data.CompareEnding;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -45,14 +47,14 @@ public class EndingResults {
         Collections.sort(results, comparator);
     }
 
-    public void addHighscore(String name, String result) {
-        loadScoreFile(); 
+    public void addResult(String name, String result) {
+        loadResultFile(); 
         results.add(new EndingResult(name, result));
-        updateScoreFile(); 
+        updateResultFile(); 
     }
 
     
-    public static void loadScoreFile() {
+    public static void loadResultFile() {
         try {
        
             inputStream = new ObjectInputStream(new FileInputStream(RESULTS_FILE));
@@ -77,7 +79,7 @@ public class EndingResults {
     }
 
 
-    public void updateScoreFile() {
+    public void updateResultFile() {
         try {
             
             outputStream = new ObjectOutputStream(new FileOutputStream(RESULTS_FILE));
