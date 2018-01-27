@@ -14,7 +14,10 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Circle;
-
+import Game_data.GameFacade;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
 /**
  *
  * @author Kim Christensen
@@ -26,50 +29,89 @@ public class FXMLDocumentController implements Initializable {
     private Circle labyrinthPlayer;
     @FXML
     private Circle labyrinthFood;
-    
-    
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
+    int score;
+    int malwareLeft;
+    long startTime;
+    long stopTime;
+    long totalTime;
+    static GameFacade facade = new GameFacade();
+    @FXML
+    private Label labyrinthTimeLabel;
+    @FXML
+    private Label labyrinthMalwareLeftLabel;
+    @FXML
+    private AnchorPane labyrinthGamePane;
+    @FXML
+    private AnchorPane labyrinthEndPane;
+    @FXML
+    private TextArea labyrinthEndTextArea;
+    @FXML
+    private Button labyrinthEndConfirmButton;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         labyrinthPlayer.requestFocus();
         labyrinthPlayer.setFocusTraversable(true);
+        score = 0;
+        malwareLeft = 15;
+        startTime = System.currentTimeMillis() / 1000;
     }    
 
     @FXML
     private void labyrinthPlayerKeyPressed(KeyEvent event) {
-        System.out.println(labyrinthPlayer.getBoundsInParent());
-        System.out.println(labyrinthFood.getBoundsInParent());
-        if(event.getCode() == KeyCode.UP){
+        stopTime = System.currentTimeMillis() / 1000;
+        totalTime = (stopTime-startTime);
+        labyrinthTimeLabel.setText(Integer.toString((int) totalTime));
+        labyrinthMalwareLeftLabel.setText(Integer.toString(malwareLeft));
+        if(event.getCode() == KeyCode.UP || event.getCode() == KeyCode.W){
             labyrinthPlayer.setTranslateY(labyrinthPlayer.getTranslateY()-5);
         }
-        else if(event.getCode() == KeyCode.DOWN){
+        else if(event.getCode() == KeyCode.DOWN || event.getCode() == KeyCode.S){
             labyrinthPlayer.setTranslateY(labyrinthPlayer.getTranslateY()+5);
         }
-        else if(event.getCode() == KeyCode.LEFT){
+        else if(event.getCode() == KeyCode.LEFT || event.getCode() == KeyCode.A){
             labyrinthPlayer.setTranslateX(labyrinthPlayer.getTranslateX()-5);
         }
-        else if(event.getCode() == KeyCode.RIGHT){
+        else if(event.getCode() == KeyCode.RIGHT ||event.getCode() == KeyCode.D){
             labyrinthPlayer.setTranslateX(labyrinthPlayer.getTranslateX()+5);
         }
         
         if(labyrinthPlayer.getBoundsInParent().getMaxX() == labyrinthFood.getBoundsInParent().getMaxX() && labyrinthPlayer.getBoundsInParent().getMaxY() == labyrinthFood.getBoundsInParent().getMaxY()){
-            System.out.println("BØH");
+            score++;
+            if(malwareLeft !=0){
+            malwareLeft --;
+            }
             int newX;
             int newY;
-            //Add et point
             do {                
                 newX = (int) (Math.random() * 10) * 40;
                 newY = (int) (Math.random() * 10) * 40;
                 labyrinthFood.relocate(newX, newY);
-                System.out.println(newX);
-                System.out.println(newY);
             } 
             while ((labyrinthFood.getLayoutX() > 842 || labyrinthFood.getLayoutX() <0) || (labyrinthFood.getLayoutY()> 592 || labyrinthFood.getLayoutY()<0));
         }
+        if(totalTime >= 60){
+            labyrinthEndPane.toFront();
+            labyrinthEndPane.setVisible(true);
+            labyrinthGamePane.setVisible(false);
+            labyrinthEndTextArea.appendText("The time is up. Did you manage to save the legs?\n");
+            labyrinthEndTextArea.appendText("Your score is " + score);
+            labyrinthEndTextArea.appendText("\nYou spent " + totalTime + " seconds\n");
+            if(score>= 15){
+                labyrinthEndTextArea.appendText("LEGSYSTEMS RESTORED [OK]\nLEGS STABILIZED [OK]\nPRESS CONFIRM TO PROCEED");
+                facade.setWon("Legs", true);
+                facade.setCompleted("Legs", true);
+            }
+            else{
+                labyrinthEndTextArea.appendText("CONNECTION TO LEGS LOST. ERROR.. ERR... LEGS NONFUNCTIONAL\nPRESS CONFIRM TO PROCEED!");
+                facade.setCompleted("Legs", true);
+            }
+        }
+    }
+
+    @FXML
+    private void labyrinthEndButton(ActionEvent event) {
+        //ACTION
     }
     
 }
