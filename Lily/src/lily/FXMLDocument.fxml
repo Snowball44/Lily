@@ -1,27 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="842.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lily.FXMLDocumentController">
-  <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-  </rowConstraints>
+<AnchorPane prefHeight="595.0" prefWidth="842.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lily.FXMLDocumentController">
    <children>
-      <Circle fx:id="labyrinthPlayer" fill="DODGERBLUE" focusTraversable="true" onKeyPressed="#labyrinthPlayerKeyPressed" radius="10.0" stroke="BLACK" strokeType="INSIDE" translateX="130.0" translateY="88.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-      </Circle>
+      <Circle fx:id="labyrinthPlayer" fill="DODGERBLUE" focusTraversable="true" layoutX="421.0" layoutY="565.0" onKeyPressed="#labyrinthPlayerKeyPressed" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="labyrinthFood" fill="#57ff1f" layoutX="441.0" layoutY="355.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
-</GridPane>
+</AnchorPane>
