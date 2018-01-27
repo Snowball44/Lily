@@ -33,11 +33,11 @@ public class Mission {
         return won;
     }
     
-    public void setCompleted(boolean completed){
-        this.completed = completed;
+    public void setCompleted(boolean _completed){
+        this.completed = _completed;
     }
     
-    public void setWon(boolean won){
-        this.won = won;
+    public void setWon(boolean _won){
+        this.won = _won;
     }
 }

@@ -5,6 +5,7 @@
  */
 package lily;
 
+import Game_data.GameFacade;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,7 +30,7 @@ public class ResultSubmitController implements Initializable {
     @FXML
     private Button submitButton;
 
-    
+    static GameFacade facade = new GameFacade();
     static Scene scene;
 
     Parent root;
@@ -49,10 +50,10 @@ public class ResultSubmitController implements Initializable {
     } 
 
     @FXML
-    private void submitAction(ActionEvent event) {
+    private void submitAction(ActionEvent event) throws IOException {
         String playername = nameField.getText();
         System.out.println(playername + "controller");
-        game.submitHighScore(playername);
+        facade.addResult(playername);
         changeScene("mainMenu");
     }
 }

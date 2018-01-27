@@ -5,7 +5,7 @@
  */
 package lily;
 
-import Game_data.EndingResults;
+import Game_data.GameFacade;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -43,9 +43,10 @@ public class MainMenuController implements Initializable {
     
     private TextArea popupText;
     
+    static GameFacade facade = new GameFacade();
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
     }    
 
     @FXML
@@ -53,7 +54,7 @@ public class MainMenuController implements Initializable {
          if (!helpDrawed) {
             openWindow();
 
-            popupText.setText();
+            popupText.setText(facade.printResults());
             background.getChildren().add(popupText);
             helpDrawed = true;
         } else {
@@ -80,7 +81,7 @@ public class MainMenuController implements Initializable {
         popupText = new TextArea();
         popupText.setPrefSize(helpTextWidth, 280);
         popupText.setLayoutX((background.getWidth() / 2) - (helpTextWidth / 2));
-        popupText.setLayoutY(280);
+        popupText.setLayoutY(200);
     }
 
     private Image url(String assetsbackgroundMainMenupng) {

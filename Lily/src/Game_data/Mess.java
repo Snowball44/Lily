@@ -20,7 +20,7 @@ public class Mess {
     Mess(){
         finalResults = new EndingResults();
         missions.add(new Mission("Legs"));
-        missions.add(new Mission("brain"));
+        missions.add(new Mission("Brain"));
         missions.add(new Mission("Heart"));
     }
     
@@ -70,5 +70,9 @@ public class Mess {
             }
         }
         return seeMission.getCompleted();
+    }
+
+    void setWon(String name) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
