@@ -3,9 +3,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 
-<AnchorPane maxHeight="595.0" maxWidth="842.0" minHeight="0.0" minWidth="0.0" prefHeight="595.0" prefWidth="842.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lily.FXMLDocumentController">
+<AnchorPane maxHeight="595.0" maxWidth="842.0" minHeight="0.0" minWidth="0.0" prefHeight="595.0" prefWidth="842.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lily.FXMLDocumentController">
    <children>
-      <Circle fx:id="labyrinthPlayer" fill="DODGERBLUE" focusTraversable="true" layoutX="350.0" layoutY="351.0" onKeyPressed="#labyrinthPlayerKeyPressed" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="labyrinthFood" fill="#57ff1f" layoutX="350.0" layoutY="450.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="labyrinthPlayer" fill="#23ff1f" focusTraversable="true" layoutX="420.0" layoutY="480.0" onKeyPressed="#labyrinthPlayerKeyPressed" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="labyrinthFood" fill="#ff2121" layoutX="420.0" layoutY="320.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </AnchorPane>

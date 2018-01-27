@@ -14,7 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Circle;
-
+import Game_data.GameFacade;
 /**
  *
  * @author Kim Christensen
@@ -26,38 +26,40 @@ public class FXMLDocumentController implements Initializable {
     private Circle labyrinthPlayer;
     @FXML
     private Circle labyrinthFood;
-    
-    
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
+    int score;
+    static GameFacade facade = new GameFacade();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         labyrinthPlayer.requestFocus();
         labyrinthPlayer.setFocusTraversable(true);
+        score = 0;
     }    
 
     @FXML
     private void labyrinthPlayerKeyPressed(KeyEvent event) {
         System.out.println(labyrinthPlayer.getBoundsInParent());
         System.out.println(labyrinthFood.getBoundsInParent());
-        if(event.getCode() == KeyCode.UP){
+        if(event.getCode() == KeyCode.UP || event.getCode() == KeyCode.W){
             labyrinthPlayer.setTranslateY(labyrinthPlayer.getTranslateY()-5);
         }
-        else if(event.getCode() == KeyCode.DOWN){
+        else if(event.getCode() == KeyCode.DOWN || event.getCode() == KeyCode.S){
             labyrinthPlayer.setTranslateY(labyrinthPlayer.getTranslateY()+5);
         }
-        else if(event.getCode() == KeyCode.LEFT){
+        else if(event.getCode() == KeyCode.LEFT || event.getCode() == KeyCode.A){
             labyrinthPlayer.setTranslateX(labyrinthPlayer.getTranslateX()-5);
         }
-        else if(event.getCode() == KeyCode.RIGHT){
+        else if(event.getCode() == KeyCode.RIGHT ||event.getCode() == KeyCode.D){
             labyrinthPlayer.setTranslateX(labyrinthPlayer.getTranslateX()+5);
         }
         
         if(labyrinthPlayer.getBoundsInParent().getMaxX() == labyrinthFood.getBoundsInParent().getMaxX() && labyrinthPlayer.getBoundsInParent().getMaxY() == labyrinthFood.getBoundsInParent().getMaxY()){
             System.out.println("BØH");
+            score++;
+            System.out.println(facade.getWon("Legs"));
+            facade.setWon("Legs", true);
+            System.out.println(facade.getWon("Legs"));
+            System.out.println(score);
             int newX;
             int newY;
             //Add et point
