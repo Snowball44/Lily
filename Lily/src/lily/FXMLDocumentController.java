@@ -66,10 +66,10 @@ public class FXMLDocumentController implements Initializable {
                 newY = (int) (Math.random() * 10) * 40;
                 labyrinthFood.setTranslateX(newX);
                 labyrinthFood.setTranslateY(newY);
-                System.out.println(newY);
-                System.out.println(newX);
+                System.out.println(labyrinthFood.getBoundsInParent().getMaxX());
+                System.out.println(labyrinthFood.getBoundsInParent().getMaxY());
             } 
-            while ((newX > 842 && newX <0) || (newY > 592 && newY<0));
+            while ((labyrinthFood.getBoundsInParent().getMaxX() > 842 && labyrinthFood.getBoundsInParent().getMaxX() <0) || (labyrinthFood.getBoundsInParent().getMaxY() > 592 && labyrinthFood.getBoundsInParent().getMaxY()<0));
         }
     }
     
