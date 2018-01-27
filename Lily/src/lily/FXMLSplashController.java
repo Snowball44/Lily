@@ -19,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+
 /**
  * FXML Controller class
  *
@@ -33,25 +34,23 @@ public class FXMLSplashController implements Initializable {
 
     private final Image[] mainBack = new Image[4];
     private final Image[] endings = new Image[4];
-    
-    
+
     private int checkArray = 0;
-    
+
     static Scene scene;
 
     Parent root;
-    
-    
+
     static GameFacade facade = new GameFacade();
+
     /**
      * Initializes the controller class.
      */
-         
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    
-    }    
+
+    }
 
     @FXML
     private void changeSceneButtonAction(ActionEvent event) throws IOException {
@@ -60,21 +59,37 @@ public class FXMLSplashController implements Initializable {
         mainBack[2] = new Image(getClass().getResource("/Assets/3.png").toExternalForm());
         mainBack[3] = new Image(getClass().getResource("/Assets/4.png").toExternalForm());
 
-       
-        if (checkArray < mainBack.length ) {
+        if (checkArray < mainBack.length) {
             view.setImage(mainBack[checkArray]);
             checkArray++;
-        } else if (facade.getCompleted("Legs") && facade.getCompleted("Brain") &&facade.getCompleted("Heart")) {
+        } else if (checkArray == mainBack.length && facade.getCompleted("Legs") && facade.getCompleted("Brain") && facade.getCompleted("Heart")) {
+            
             if (facade.getWon("Legs") && facade.getWon("Brain") && facade.getWon("Heart")) {
                 //Working
+                
+                
+                
             } else if (facade.getWon("Brain") && facade.getWon("Heart")) {
                 //Paralyzed
+                
+                
+                
             } else if (facade.getWon("Heart")) {
                 //Braindamage
+                
+                
+                
             } else {
                 //Dead
+                
+                
+                
             }
-                changeScene("resultSubmit");
+            
+            checkArray++;
+            
+        } else if (checkArray > mainBack.length) {
+            changeScene("resultSubmit");
         } else {
             changeScene("GameMenu");
         }
@@ -83,12 +98,12 @@ public class FXMLSplashController implements Initializable {
     @FXML
     private void handleButtonAction(KeyEvent event) {
     }
-    
+
     public void changeScene(String newScene) throws IOException {
         root = FXMLLoader.load(getClass().getResource(newScene + ".fxml"));
         scene = nextButton.getScene();
         scene.setRoot(root);
         scene.getRoot().requestFocus();
-    } 
-  
+    }
+
 }
