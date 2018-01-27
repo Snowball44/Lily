@@ -7,18 +7,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="595.0" prefWidth="842.0" style="-fx-background-image: url('Assets/gameMenu.png'); -fx-background-size: stretch;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lily.GameMenuController">
+<AnchorPane id="AnchorPane" prefHeight="595.0" prefWidth="842.0" style="-fx-background-image: url('Assets/gameMenu.png'); overflow: hidden; -fx-background-size: stretch;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lily.GameMenuController">
    <children>
-      <ImageView fitHeight="595.0" fitWidth="842.0" layoutX="108.0" pickOnBounds="true" style="-fx-image: url('Assets/gameMenu.png');" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <image>
-            <Image url="@../Assets/gameMenu.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="655.0" layoutY="82.0" mnemonicParsing="false" text="Button" />
-      <Button layoutX="655.0" layoutY="167.0" mnemonicParsing="false" text="Button" />
-      <Button layoutX="656.0" layoutY="83.0" mnemonicParsing="false" text="Button" />
-      <Button layoutX="656.0" layoutY="83.0" mnemonicParsing="false" text="Button" />
-      <Button layoutX="656.0" layoutY="83.0" mnemonicParsing="false" text="Button" />
+      <ImageView fx:id="legs" fitHeight="50.0" fitWidth="50.0" layoutX="660.0" layoutY="379.0" onMouseClicked="#legsAction" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="heartButton" fitHeight="50.0" fitWidth="50.0" layoutX="660.0" layoutY="175.0" onMouseClicked="#heartActon" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="brainButton" fitHeight="50.0" fitWidth="50.0" layoutX="660.0" layoutY="25.0" onMouseClicked="#brainAction" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="load" layoutX="645.0" layoutY="542.0" mnemonicParsing="false" onAction="#loadAction" text="Load Data" />
    </children>
 </AnchorPane>
