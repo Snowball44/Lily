@@ -33,7 +33,7 @@ public class FXMLSplashController implements Initializable {
     private ImageView view;
 
     private final Image[] mainBack = new Image[4];
-    private final Image[] endings = new Image[4];
+    
 
     private int checkArray = 0;
 

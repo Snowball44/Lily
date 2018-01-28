@@ -68,7 +68,7 @@ public class GameMenuController implements Initializable {
     @FXML
     private void heartActon(MouseEvent event) throws IOException {
         if (facade.getCompleted("Legs") && facade.getCompleted("Brain") && !facade.getCompleted("Heart")) {
-          // changeScene("", heartButton);
+          changeScene("Hangman", heartButton);
         }
 
     }

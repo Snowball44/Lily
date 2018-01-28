@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lily.HangmanGameFXMLController">
+   <children>
+      <AnchorPane id="AnchorPane" fx:id="heartGamePane" prefHeight="595.0" prefWidth="842.0">
+         <children>
+            <ImageView fx:id="hangManHeart1" fitHeight="89.0" fitWidth="83.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../heart.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="hangManHeart2" fitHeight="89.0" fitWidth="83.0" layoutX="104.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../heart.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="hangManHeart3" fitHeight="89.0" fitWidth="83.0" layoutX="194.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../heart.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="hangManWordLabel" layoutX="362.0" layoutY="172.0" text="*****">
+               <font>
+                  <Font size="47.0" />
+               </font>
+            </Label>
+            <Button fx:id="hangManButtonA" layoutX="165.0" layoutY="326.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="A" />
+            <Button fx:id="hangManButtonB" layoutX="207.0" layoutY="326.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="B" />
+            <Button fx:id="hangManButtonC" layoutX="248.0" layoutY="326.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="C" />
+            <Button fx:id="hangManButtonD" layoutX="295.0" layoutY="326.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="D" />
+            <Button fx:id="hangManButtonE" layoutX="335.0" layoutY="326.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="E" />
+            <Button fx:id="hangManButtonF" layoutX="374.0" layoutY="326.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="F" />
+            <Button fx:id="hangManButtonG" layoutX="409.0" layoutY="326.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="G" />
+            <Button fx:id="hangManButtonH" layoutX="453.0" layoutY="326.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="H" />
+            <Button fx:id="hangManButtonI" layoutX="498.0" layoutY="326.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="I" />
+            <Button fx:id="hangManButtonJ" layoutX="533.0" layoutY="326.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="J" />
+            <Button fx:id="hangManButtonK" layoutX="165.0" layoutY="370.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="K" />
+            <Button fx:id="hangManButtonL" layoutX="207.0" layoutY="370.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="L" />
+            <Button fx:id="hangManButtonM" layoutX="246.0" layoutY="370.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="M" />
+            <Button fx:id="hangManButtonN" layoutX="294.0" layoutY="370.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="N" />
+            <Button fx:id="hangManButtonO" layoutX="331.0" layoutY="370.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="O" />
+            <Button fx:id="hangManButtonP" layoutX="374.0" layoutY="370.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="P" />
+            <Button fx:id="hangManButtonQ" layoutX="409.0" layoutY="370.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="Q" />
+            <Button fx:id="hangManButtonR" layoutX="451.0" layoutY="370.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="R" />
+            <Button fx:id="hangManButtonS" layoutX="484.0" layoutY="370.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="S" />
+            <Button fx:id="hangManButtonT" layoutX="519.0" layoutY="370.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="T" />
+            <Button fx:id="hangManButtonU" layoutX="164.0" layoutY="410.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="U" />
+            <Button fx:id="hangManButtonV" layoutX="206.0" layoutY="410.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="V" />
+            <Button fx:id="hangManButtonX" layoutX="248.0" layoutY="410.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="X" />
+            <Button fx:id="hangManButtonY" layoutX="295.0" layoutY="411.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="Y" />
+            <Button fx:id="hangManButtonZ" layoutX="332.0" layoutY="411.0" mnemonicParsing="false" onAction="#hangManButtonGuess" text="Z" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="heartEndPane" prefHeight="200.0" prefWidth="200.0" visible="false">
+         <children>
+            <TextArea fx:id="heartEndTextArea" editable="false" layoutX="23.0" layoutY="198.0" prefHeight="267.0" prefWidth="805.0" AnchorPane.bottomAnchor="164.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="164.0">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </TextArea>
+            <Button fx:id="heartEndConfirmButton" layoutX="373.0" layoutY="463.0" mnemonicParsing="false" onAction="#heartEndConfirmButton" prefHeight="25.0" prefWidth="200.0" text="Confirm" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="321.0" AnchorPane.rightAnchor="221.0">
+               <font>
+                  <Font name="Helvetica Light" size="20.0" />
+               </font></Button>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
