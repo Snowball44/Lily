@@ -82,7 +82,7 @@ public class VendeSpilController implements Initializable {
         redImage = new Image(getClass().getResource("/Assets/red.png")
                     .toString());
         blueImage = new Image(getClass().getResource("/Assets/blue.png")
-                    .toString());;
+                    .toString());
         blackImage = new Image(getClass().getResource("/Assets/black.png")
                     .toString());
         
