@@ -30,11 +30,11 @@ import static lily.FXMLDocumentController.scene;
  * @author Kim Christensen
  */
 public class HangmanGameFXMLController implements Initializable {
-    
+
     static Scene scene;
 
     Parent root;
-    
+
     @FXML
     private ImageView hangManHeart1;
     @FXML
@@ -93,15 +93,15 @@ public class HangmanGameFXMLController implements Initializable {
     private Button hangManButtonY;
     @FXML
     private Button hangManButtonZ;
-    
-    static GameFacade facade = new GameFacade();
+
+    private GameFacade facade = new GameFacade();
     String selectedWord;
     String word1 = "heart";
     String word2 = "brain";
     String word3 = "brave";
     int correct = 0;
     int lifeLeft;
-    char[]selectedWordArray;
+    char[] selectedWordArray;
     @FXML
     private AnchorPane heartGamePane;
     @FXML
@@ -110,9 +110,10 @@ public class HangmanGameFXMLController implements Initializable {
     private TextArea heartEndTextArea;
     @FXML
     private Button heartEndConfirmButton;
+
     public HangmanGameFXMLController() {
     }
-    
+
     /**
      * Initializes the controller class.
      */
@@ -126,176 +127,148 @@ public class HangmanGameFXMLController implements Initializable {
         hangManHeart1.setImage(heart1);
         hangManHeart2.setImage(heart1);
         hangManHeart3.setImage(heart1);
-    }    
+    }
 
     @FXML
     private void hangManButtonGuess(ActionEvent event) {
-        if(event.getSource() == hangManButtonA){
+        if (event.getSource() == hangManButtonA) {
             guessLetter('a');
             hangManButtonA.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonB){
+        } else if (event.getSource() == hangManButtonB) {
             guessLetter('b');
             hangManButtonB.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonC){
+        } else if (event.getSource() == hangManButtonC) {
             guessLetter('c');
             hangManButtonC.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonD){
+        } else if (event.getSource() == hangManButtonD) {
             guessLetter('d');
             hangManButtonD.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonE){
+        } else if (event.getSource() == hangManButtonE) {
             guessLetter('e');
             hangManButtonE.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonF){
+        } else if (event.getSource() == hangManButtonF) {
             guessLetter('f');
             hangManButtonF.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonG){
+        } else if (event.getSource() == hangManButtonG) {
             guessLetter('g');
             hangManButtonG.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonH){
+        } else if (event.getSource() == hangManButtonH) {
             guessLetter('h');
             hangManButtonH.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonI){
+        } else if (event.getSource() == hangManButtonI) {
             guessLetter('i');
             hangManButtonI.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonJ){
+        } else if (event.getSource() == hangManButtonJ) {
             guessLetter('j');
             hangManButtonJ.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonK){
+        } else if (event.getSource() == hangManButtonK) {
             guessLetter('k');
             hangManButtonK.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonL){
+        } else if (event.getSource() == hangManButtonL) {
             guessLetter('l');
             hangManButtonL.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonM){
+        } else if (event.getSource() == hangManButtonM) {
             guessLetter('m');
             hangManButtonM.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonN){
+        } else if (event.getSource() == hangManButtonN) {
             guessLetter('n');
             hangManButtonN.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonO){
+        } else if (event.getSource() == hangManButtonO) {
             guessLetter('o');
             hangManButtonO.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonP){
+        } else if (event.getSource() == hangManButtonP) {
             guessLetter('p');
             hangManButtonP.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonQ){
+        } else if (event.getSource() == hangManButtonQ) {
             guessLetter('q');
             hangManButtonQ.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonR){
+        } else if (event.getSource() == hangManButtonR) {
             guessLetter('r');
             hangManButtonR.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonS){
+        } else if (event.getSource() == hangManButtonS) {
             guessLetter('s');
             hangManButtonS.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonT){
+        } else if (event.getSource() == hangManButtonT) {
             guessLetter('t');
             hangManButtonT.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonU){
+        } else if (event.getSource() == hangManButtonU) {
             guessLetter('u');
             hangManButtonU.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonV){
+        } else if (event.getSource() == hangManButtonV) {
             guessLetter('v');
             hangManButtonV.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonX){
+        } else if (event.getSource() == hangManButtonX) {
             guessLetter('x');
             hangManButtonX.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonY){
+        } else if (event.getSource() == hangManButtonY) {
             guessLetter('y');
             hangManButtonY.setVisible(false);
-        }
-        else if(event.getSource() == hangManButtonZ){
+        } else if (event.getSource() == hangManButtonZ) {
             guessLetter('z');
             hangManButtonZ.setVisible(false);
         }
     }
-    
+
     //Hangman guess method
-    public void guessLetter(char letter){
+    public void guessLetter(char letter) {
         int i = 0;
         boolean isFound = false;
-        while(i!=selectedWordArray.length){
-            if(selectedWordArray[i] == letter){
+        while (i != selectedWordArray.length) {
+            if (selectedWordArray[i] == letter) {
                 System.out.println("Bogstav findes");
                 isFound = true;
                 i++;
                 break;
-            }
-            else{
+            } else {
                 i++;
             }
         }
-        if(isFound){
+        if (isFound) {
             char[] hangManWordLabelCharArray;
             String hej = hangManWordLabel.getText();
             hangManWordLabelCharArray = hej.toCharArray();
             System.out.println(hej);
             System.out.println(hangManWordLabelCharArray);
-            hangManWordLabelCharArray[i-1] = letter;
+            hangManWordLabelCharArray[i - 1] = letter;
             hej = String.valueOf(hangManWordLabelCharArray);
             hangManWordLabel.setText(hej);
             correct++;
             System.out.println(correct);
             System.out.println(lifeLeft);
-            
-            if(correct == 5){
-            facade.setWon("heart", true);
-            facade.setCompleted("heart", true);
-            heartEndPane.setVisible(true);
-            heartGamePane.setVisible(false);
-            heartEndTextArea.setText("HEART SYSTEMS RESTORED [OK]\nHEART RATE STABILIZED [OK]\nANTIVIRUS CODE UPLOADED. MALWARE DELETED [OK]");
-            
+
+            if (correct == 5) {
+                facade.setWon("Heart", true);
+                facade.setCompleted("Heart", true);
+                heartEndPane.setVisible(true);
+                heartGamePane.setVisible(false);
+                heartEndTextArea.setText("HEART SYSTEMS RESTORED [OK]\nHEART RATE STABILIZED [OK]\nANTIVIRUS CODE UPLOADED. MALWARE DELETED [OK]");
+                System.out.println(facade.getWon("Heart"));
             }
-        }
-        else{
+        } else {
             lifeLeft--;
             //Win
-            if(lifeLeft == 0){
+            if (lifeLeft == 0) {
                 hangManHeart1.setVisible(false);
                 //Skift til nyt pane der viser win eller lose og husk confirm button.
-                facade.setCompleted("heart", true);
-                facade.setWon("heart", false);
+                facade.setCompleted("Heart", true);
+                facade.setWon("Heart", false);
                 heartEndPane.setVisible(true);
                 heartGamePane.setVisible(false);
                 heartEndTextArea.setText("ERROR. ERROR. ERROR. HEART BEAT RATIO AT 0.\nTERMINATING PROCESS.\nConnection to heart LOST");
-                
+
             }
-            
+
             //Lose
         }
-        if(lifeLeft == 2){
+        if (lifeLeft == 2) {
             hangManHeart3.setVisible(false);
-        }
-        else if (lifeLeft == 1){
+        } else if (lifeLeft == 1) {
             hangManHeart2.setVisible(false);
         }
     }
-    
+
     //Hangman Stringselector
-    
-    public String wordSelector(){
+    public String wordSelector() {
         int num = (int) Math.floor(Math.random() * 3) + 1;
         switch (num) {
             case 1:
@@ -315,10 +288,10 @@ public class HangmanGameFXMLController implements Initializable {
 
     @FXML
     private void heartEndConfirmButton(ActionEvent event) throws IOException {
-        changeScene("splashscreen1");
+        changeScene("splashscreen3");
     }
-    
-     public void changeScene(String newScene) throws IOException {
+
+    public void changeScene(String newScene) throws IOException {
         root = FXMLLoader.load(getClass().getResource(newScene + ".fxml"));
         scene = heartEndConfirmButton.getScene();
         scene.setRoot(root);

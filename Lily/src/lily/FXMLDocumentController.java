@@ -116,7 +116,7 @@ public class FXMLDocumentController implements Initializable {
         if(totalTime > 10){
             mediaPlayer.stop();
         }
-        if(totalTime >= 70){
+        if(totalTime >= 10){
             labyrinthEndPane.toFront();
             labyrinthEndPane.setVisible(true);
             labyrinthGamePane.setVisible(false);

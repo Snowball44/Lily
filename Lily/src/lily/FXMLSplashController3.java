@@ -25,16 +25,14 @@ import javafx.scene.input.KeyEvent;
  *
  * @author Zuzu
  */
-public class FXMLSplashController implements Initializable {
+public class FXMLSplashController3 implements Initializable {
 
     @FXML
     private Button nextButton;
     @FXML
     private ImageView view;
 
-    private final Image[] mainBack = new Image[4];
     private final Image[] endings = new Image[4];
-    
 
     private int checkArray = 0;
 
@@ -43,6 +41,7 @@ public class FXMLSplashController implements Initializable {
     Parent root;
 
     private GameFacade facade = new GameFacade();
+    private int check = 0;
 
     /**
      * Initializes the controller class.
@@ -55,20 +54,32 @@ public class FXMLSplashController implements Initializable {
 
     @FXML
     private void changeSceneButtonAction(ActionEvent event) throws IOException {
-        mainBack[0] = new Image(getClass().getResource("/Assets/1.png").toExternalForm());
-        mainBack[1] = new Image(getClass().getResource("/Assets/2.png").toExternalForm());
-        mainBack[2] = new Image(getClass().getResource("/Assets/3.png").toExternalForm());
-        mainBack[3] = new Image(getClass().getResource("/Assets/4.png").toExternalForm());
         endings[0] = new Image(getClass().getResource("/Assets/succes.png").toExternalForm());
         endings[1] = new Image(getClass().getResource("/Assets/para.png").toExternalForm());
         endings[2] = new Image(getClass().getResource("/Assets/Brain.png").toExternalForm());
         endings[3] = new Image(getClass().getResource("/Assets/Dead.png").toExternalForm());
-        if (checkArray < mainBack.length) {
-            view.setImage(mainBack[checkArray]);
-            checkArray++;
-        }  else {
-            changeScene("GameMenu");
-            checkArray++;
+        if (facade.getWon("Legs") && facade.getWon("Brain") && facade.getWon("Heart") && check == 0) {
+            //Working
+
+            view.setImage(endings[0]);
+            check++;
+        } else if ((!facade.getWon("Legs") || facade.getWon("Legs")) && facade.getWon("Brain") && facade.getWon("Heart")&& check == 0) {
+            //Paralyzed
+
+            view.setImage(endings[1]);
+            check++;
+        } else if ((!facade.getWon("Legs") || facade.getWon("Legs")) && (!facade.getWon("Brain") || facade.getWon("Brain")) && facade.getWon("Heart")&& check == 0) {
+            //Braindamage
+
+            view.setImage(endings[2]);
+            check++;
+        } else if ((!facade.getWon("Legs") || facade.getWon("Legs")) && (!facade.getWon("Brain") || facade.getWon("Brain")) && !facade.getWon("Heart")&& check == 0) {
+            //Dead
+            view.setImage(endings[3]);
+            check++;
+        } else {
+            check = 0;
+            changeScene("resultSubmit");
         }
     }
 
@@ -80,7 +91,7 @@ public class FXMLSplashController implements Initializable {
         root = FXMLLoader.load(getClass().getResource(newScene + ".fxml"));
         scene = nextButton.getScene();
         scene.setRoot(root);
-        scene.getRoot().requestFocus();
+        //scene.getRoot().requestFocus();
     }
 
 }
