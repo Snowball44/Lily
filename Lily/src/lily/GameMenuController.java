@@ -53,7 +53,7 @@ public class GameMenuController implements Initializable {
 
     @FXML
     private void legsAction(MouseEvent event) throws IOException {
-        if (!facade.getCompleted("Legs") && !facade.getCompleted("brain") && !facade.getCompleted("Heart")) {
+        if (!facade.getCompleted("Legs") && !facade.getCompleted("Brain") && !facade.getCompleted("Heart")) {
             changeScene("FXMLDocument", legs);
         }
 
@@ -67,16 +67,16 @@ public class GameMenuController implements Initializable {
 
     @FXML
     private void heartActon(MouseEvent event) throws IOException {
-        if (facade.getCompleted("Legs") && facade.getCompleted("brain") && !facade.getCompleted("Heart")) {
-         //   changeScene("", heartButton);
+        if (facade.getCompleted("Legs") && facade.getCompleted("Brain") && !facade.getCompleted("Heart")) {
+          // changeScene("", heartButton);
         }
 
     }
 
     @FXML
     private void brainAction(MouseEvent event) throws IOException {
-        if (facade.getCompleted("Legs") && !facade.getCompleted("brain") && !facade.getCompleted("Heart")) {
-          //  changeScene("", brainButton);
+        if (facade.getCompleted("Legs") && !facade.getCompleted("Brain") && !facade.getCompleted("Heart")) {
+            changeScene("VendeSpil", brainButton);
         }
     }
 

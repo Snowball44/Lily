@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="595.0" prefWidth="842.0" style="-fx-background-image: url('Assets/backgroundMainMenu.png'); -fx-background-size: stretch; overflow: hidden;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lily.Splashscreen2Controller">
+   <children>
+      <TextArea fx:id="labyrinthEndTextArea" editable="false" layoutY="157.0" prefHeight="267.0" prefWidth="805.0" AnchorPane.bottomAnchor="164.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="164.0">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </TextArea>
+      <Button fx:id="labyrinthEndConfirmButton" mnemonicParsing="false" onAction="#labyrinthEndButton" prefHeight="25.0" prefWidth="200.0" text="Comfirm" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="321.0" AnchorPane.rightAnchor="321.0">
+         <font>
+            <Font name="Helvetica Light" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

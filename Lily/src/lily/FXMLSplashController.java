@@ -58,7 +58,10 @@ public class FXMLSplashController implements Initializable {
         mainBack[1] = new Image(getClass().getResource("/Assets/2.png").toExternalForm());
         mainBack[2] = new Image(getClass().getResource("/Assets/3.png").toExternalForm());
         mainBack[3] = new Image(getClass().getResource("/Assets/4.png").toExternalForm());
-
+        Image succes = new Image(getClass().getResource("/Assets/succes.png").toExternalForm());
+        Image para = new Image(getClass().getResource("/Assets/para.png").toExternalForm());
+        Image brain = new Image(getClass().getResource("/Assets/Brain.png").toExternalForm());
+        Image dead = new Image(getClass().getResource("/Assets/Dead.png").toExternalForm());
         if (checkArray < mainBack.length) {
             view.setImage(mainBack[checkArray]);
             checkArray++;
@@ -67,22 +70,22 @@ public class FXMLSplashController implements Initializable {
             if (facade.getWon("Legs") && facade.getWon("Brain") && facade.getWon("Heart")) {
                 //Working
                 
-                
+                view.setImage(succes);
                 
             } else if (facade.getWon("Brain") && facade.getWon("Heart")) {
                 //Paralyzed
                 
-                
+                view.setImage(para);
                 
             } else if (facade.getWon("Heart")) {
                 //Braindamage
                 
-                
+                view.setImage(brain);
                 
             } else {
                 //Dead
                 
-                
+                view.setImage(dead);
                 
             }
             

@@ -21,7 +21,7 @@ public class Lily extends Application {
     private GameFacade facade = new GameFacade();
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("VendeSpil.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
         
         Scene scene = new Scene(root);
         stage.setTitle("GGJ18: Lily");
