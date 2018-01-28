@@ -5,15 +5,16 @@
  */
 package lily;
 
+import Game_data.GameFacade;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
 import java.util.ResourceBundle;
-import javafx.collections.ObservableList;
+import java.util.Set;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -28,12 +29,18 @@ public class VendeSpilController implements Initializable {
 
     public Node clickedImageView1;
     public Node clickedImageView2;
-    
+    private GameFacade facade = new GameFacade();
     private Boolean setCardFlipped = false;
+    private Boolean hasWon = false;
+    private Boolean hasLost = false;
+    
     private String[] saveClicks = new String[2];
     private Integer mCount = 0;
     
+    private Integer clicksUsedTotal = 0;
+    
     ArrayList<VendeBillede> vendeBilleder = new ArrayList<VendeBillede>();
+    ArrayList<VendeBillede> billedeHasBeenFlipped = new ArrayList<VendeBillede>();
     
     private static Image orangeImage;
     private static Image greenImage;
@@ -60,12 +67,19 @@ public class VendeSpilController implements Initializable {
     private ImageView red2;
     @FXML
     private ImageView orange1;
+    @FXML
+    private Label clicksUsedLabel;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        hasLost = false;
+        hasWon = false;
+        vendeBilleder.clear();
+        clicksUsedTotal = 0;
+        
         vendeBilleder.add(new VendeBillede(0,"orange1",orange1));
         vendeBilleder.add(new VendeBillede(1,"orange2",orange2));
         vendeBilleder.add(new VendeBillede(2,"red1",red1));
@@ -85,7 +99,6 @@ public class VendeSpilController implements Initializable {
                     .toString());
         blackImage = new Image(getClass().getResource("/Assets/black.png")
                     .toString());
-        
     }
     
     void CheckArray(String[] arrs,int cnt, String input, String input2)
@@ -163,7 +176,7 @@ public class VendeSpilController implements Initializable {
     @FXML
     private void clickKort(MouseEvent event) 
     {   
-        System.out.println("clicked node: " + event.getPickResult().getIntersectedNode());
+        //System.out.println("clicked node: " + event.getPickResult().getIntersectedNode());
         SetBrickColor(event);
         
         if(!setCardFlipped)
@@ -184,14 +197,13 @@ public class VendeSpilController implements Initializable {
             }
             else if(mCount == 2)
             {
+                
                 clickedImageView2 = event.getPickResult().getIntersectedNode();
                 System.out.println("clicked this: " + clickedImageView2);
                 CheckArray(saveClicks,mCount, saveClicks[0], event.getPickResult().getIntersectedNode().getId());
                 //hvis billederne ikke passer
                 if(!EvalBricks(clickedImageView1.getId(), clickedImageView2.getId()))
                 {
-                    //System.out.println("NO MATCH!!!!");
-                    
                     for (int i = 0; i < 8; i++) 
                     {
                         if(vendeBilleder.get(i).navn.equals(clickedImageView1.getId())
@@ -201,6 +213,10 @@ public class VendeSpilController implements Initializable {
                         }
                     }
                     ClearData();
+                    
+                    clicksUsedTotal++;
+                    clicksUsedLabel.textProperty().setValue("TRÆK BRUGT: " + clicksUsedTotal);
+                    //System.out.println("clicks used: " + clicksUsedTotal);
                 }
                 //hvis begge billeder matcher
                 else if(EvalBricks(clickedImageView1.getId(), clickedImageView2.getId()))
@@ -211,6 +227,8 @@ public class VendeSpilController implements Initializable {
                                 || clickedImageView2.getId().equals(vendeBilleder.get(i).navn))
                         {
                             vendeBilleder.get(i).hasBeenFlipped = true;
+                            billedeHasBeenFlipped.add(vendeBilleder.get(i));
+                            System.out.println("der er: " + billedeHasBeenFlipped.size());
                         }
                         
                         if(vendeBilleder.get(i).hasBeenFlipped)
@@ -219,29 +237,33 @@ public class VendeSpilController implements Initializable {
                             clickedImageView2.setVisible(false);
                         }
                     }
-                    //System.out.println("MATCH!!");
                     ClearData();
+                    
+                    clicksUsedTotal++;
+                    clicksUsedLabel.textProperty().setValue("TRÆK BRUGT: " + clicksUsedTotal);
+                    //System.out.println("clicks used: " + clicksUsedTotal);
                 }
             }
             
-            /*for (int i = 0; i < saveClicks.length; i++) {
-                System.out.println(Arrays.toString(saveClicks));
-            }*/
-        }
+            if(billedeHasBeenFlipped.size() >= 8)
+            {
+                hasWon = true;
+               facade.setWon("Brain", hasWon);
+               facade.setCompleted("Brain", hasWon);
+               changeScene();
                 
-        //String tempstr = event.getPickResult().getIntersectedNode().getId();
-        
-        /*System.out.println(event.getPickResult().getIntersectedNode().getId());
-        
-        for(VendeBillede vende : vendeBilleder)
-        {
-            System.out.println(vende.hasBeenFlipped);
-        }*/
-        
+            }
+            if(clicksUsedTotal > 15)
+            {
+                hasLost = true;
+                facade.setCompleted("Brain", hasLost);
+                changeScene();
+                
+            }
+            
+            
+        }
     }
-    
-    
-    
     private void ClearData()
     {
         saveClicks[0] = null;
@@ -258,28 +280,32 @@ public class VendeSpilController implements Initializable {
         String[] colors = new String[]{"red1","red2","orange1","orange2","green1","green2","blue1","blue2"};
         
         //matches red1 and red2
-        if(matchBrick1.equals(colors[0]) && matchBrick2.equals(colors[1]))
+        if(matchBrick1.equals(colors[0]) && matchBrick2.equals(colors[1]) 
+                || matchBrick1.equals(colors[1]) && matchBrick2.equals(colors[0]))
         {
             //System.out.println("its a match!!!!");
             return true;
         }
         
         //matches orange1 and orange2
-        if(matchBrick1.equals(colors[2]) && matchBrick2.equals(colors[3]))
+        if(matchBrick1.equals(colors[2]) && matchBrick2.equals(colors[3])
+                || matchBrick1.equals(colors[3]) && matchBrick2.equals(colors[2]))
         {
             //System.out.println("its a match!!!!");
             return true;
         }
         
         //matches green1 and green2
-        if(matchBrick1.equals(colors[4]) && matchBrick2.equals(colors[5]))
+        if(matchBrick1.equals(colors[4]) && matchBrick2.equals(colors[5])
+                || matchBrick1.equals(colors[5]) && matchBrick2.equals(colors[4]))
         {
             //System.out.println("its a match!!!!");
             return true;
         }
         
         //matches blue1 and blue2
-        if(matchBrick1.equals(colors[6]) && matchBrick2.equals(colors[7]))
+        if(matchBrick1.equals(colors[6]) && matchBrick2.equals(colors[7])
+                || matchBrick1.equals(colors[7]) && matchBrick2.equals(colors[6]))
         {
             //System.out.println("its a match!!!!");
             return true;
