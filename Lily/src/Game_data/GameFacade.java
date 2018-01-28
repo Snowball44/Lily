@@ -62,4 +62,9 @@ public class GameFacade implements InterfaceGame {
         return factory.getCompleted(name);
     }
 
+    @Override
+    public void reset() {
+        factory.reset();
+    }
+
 }

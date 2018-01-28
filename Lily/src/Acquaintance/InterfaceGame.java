@@ -17,5 +17,6 @@ public interface InterfaceGame {
     public boolean getWon(String name);
     public boolean getCompleted(String name);
     public String printResults();
+    public void reset();
     
 }

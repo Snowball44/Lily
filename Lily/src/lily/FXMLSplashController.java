@@ -89,6 +89,7 @@ public class FXMLSplashController implements Initializable {
             checkArray++;
             
         } else if (checkArray > mainBack.length) {
+            checkArray = 0;
             changeScene("resultSubmit");
         } else {
             changeScene("GameMenu");

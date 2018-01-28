@@ -55,6 +55,7 @@ public class ResultSubmitController implements Initializable {
         String playername = nameField.getText();
         System.out.println(playername + "controller");
         facade.addResult(playername);
+        facade.reset();
         changeScene("mainMenu");
     }
 }

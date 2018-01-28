@@ -71,5 +71,13 @@ public class Mess {
         }
         return seeMission.getCompleted();
     }
+    
+    public void reset(){
+        for (int i = 0; i < missions.size(); i++) {
+            missions.get(i).setCompleted(false);
+            missions.get(i).setWon(false);
+            
+        }
+    }
 
 }
