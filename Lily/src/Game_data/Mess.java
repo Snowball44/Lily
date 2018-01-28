@@ -42,7 +42,7 @@ public class Mess {
         for (int i = 0; i < missions.size(); i++) {
             seeMission = (Mission) missions.get(i);
             if (seeMission.getName().equalsIgnoreCase(name)) {
-                seeMission.setWon(completed);
+                seeMission.setCompleted(completed);
                 break;
             }
         }

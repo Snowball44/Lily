@@ -18,7 +18,7 @@ import javafx.stage.Stage;
  * @author Kim Christensen
  */
 public class Lily extends Application {
-    static GameFacade facade = new GameFacade();
+    private GameFacade facade = new GameFacade();
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));

@@ -41,7 +41,7 @@ public class FXMLSplashController implements Initializable {
 
     Parent root;
 
-    static GameFacade facade = new GameFacade();
+    private GameFacade facade = new GameFacade();
 
     /**
      * Initializes the controller class.

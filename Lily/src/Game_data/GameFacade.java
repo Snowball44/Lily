@@ -13,7 +13,7 @@ import Acquaintance.InterfaceGame;
  */
 public class GameFacade implements InterfaceGame {
 
-    Mess factory = new Mess();
+    static Mess factory = new Mess();
 
     @Override
     public void addResult(String name) {

@@ -48,7 +48,7 @@ public class FXMLDocumentController implements Initializable {
     long startTime;
     long stopTime;
     long totalTime;
-    static GameFacade facade = new GameFacade();
+    private GameFacade facade = new GameFacade();
     @FXML
     private Label labyrinthTimeLabel;
     @FXML

@@ -43,7 +43,7 @@ public class MainMenuController implements Initializable {
     
     private TextArea popupText;
     
-    static GameFacade facade = new GameFacade();
+    private GameFacade facade = new GameFacade();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

@@ -30,7 +30,7 @@ public class GameMenuController implements Initializable {
     private Image locked;
     private Image unlocked;
 
-    static GameFacade facade = new GameFacade();
+    private GameFacade facade = new GameFacade();
     static Scene scene;
 
     Parent root;

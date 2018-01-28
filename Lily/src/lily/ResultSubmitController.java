@@ -31,7 +31,7 @@ public class ResultSubmitController implements Initializable {
     @FXML
     private Button submitButton;
 
-    static GameFacade facade = new GameFacade();
+    private GameFacade facade = new GameFacade();
     static Scene scene;
 
     Parent root;
