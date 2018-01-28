@@ -85,7 +85,7 @@ public class GameMenuController implements Initializable {
 
         locked = new Image(getClass().getResource("/Assets/locked.png").toExternalForm());
         unlocked = new Image(getClass().getResource("/Assets/unlocked.png").toExternalForm());
-
+        System.out.println(facade.getCompleted("Legs"));
         if (!facade.getCompleted("Legs") && !facade.getCompleted("brain") && !facade.getCompleted("Heart")) {
             legs.setImage(unlocked);
             brainButton.setImage(locked);

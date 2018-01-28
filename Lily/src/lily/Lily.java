@@ -24,7 +24,7 @@ public class Lily extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
         
         Scene scene = new Scene(root);
-        
+        stage.setTitle("GGJ18: Lily");
         stage.setScene(scene);
         stage.show();
     }

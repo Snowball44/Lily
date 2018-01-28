@@ -132,7 +132,9 @@ public class FXMLDocumentController implements Initializable {
                 labyrinthEndTextArea.appendText("CONNECTION TO LEGS LOST. ERROR.. ERR... LEGS NONFUNCTIONAL\nPRESS CONFIRM TO PROCEED!");
                 facade.setCompleted("Legs", true);
             }
+            
         }
+        
     }
 
     @FXML

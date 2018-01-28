@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -12,6 +13,9 @@
       <ImageView fx:id="legs" fitHeight="50.0" fitWidth="50.0" layoutX="660.0" layoutY="379.0" onMouseClicked="#legsAction" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="heartButton" fitHeight="50.0" fitWidth="50.0" layoutX="660.0" layoutY="175.0" onMouseClicked="#heartActon" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="brainButton" fitHeight="50.0" fitWidth="50.0" layoutX="660.0" layoutY="25.0" onMouseClicked="#brainAction" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="load" layoutX="645.0" layoutY="542.0" mnemonicParsing="false" onAction="#loadAction" text="Load Data" />
+      <Button fx:id="load" layoutX="640.0" layoutY="542.0" mnemonicParsing="false" onAction="#loadAction" text="Load Data" AnchorPane.bottomAnchor="25.0">
+         <font>
+            <Font name="Helvetica Light" size="15.0" />
+         </font></Button>
    </children>
 </AnchorPane>
