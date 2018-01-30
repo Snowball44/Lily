@@ -73,11 +73,11 @@ public class FXMLDocumentController implements Initializable {
         score = 0;
         malwareLeft = 15;
         startTime = System.currentTimeMillis() / 1000;
-        String musicFile = "heartbeat.wav";     // For example
+        //String musicFile = "/Sound/heartbeat.wav";     // For example
 
-        Media sound = new Media(new File(musicFile).toURI().toString());
-        mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
+        //Media sound = new Media(new File(musicFile).toURI().toString());
+        //mediaPlayer = new MediaPlayer(sound);
+        //mediaPlayer.play();
     }    
 
     @FXML
@@ -113,9 +113,9 @@ public class FXMLDocumentController implements Initializable {
             } 
             while ((labyrinthFood.getLayoutX() > 842 || labyrinthFood.getLayoutX() <0) || (labyrinthFood.getLayoutY()> 592 || labyrinthFood.getLayoutY()<0));
         }
-        if(totalTime > 10){
+        /*if(totalTime > 10){
             mediaPlayer.stop();
-        }
+        }*/
         if(totalTime >= 70){
             labyrinthEndPane.toFront();
             labyrinthEndPane.setVisible(true);
