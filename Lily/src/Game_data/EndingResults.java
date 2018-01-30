@@ -31,7 +31,7 @@ public class EndingResults {
   
     EndingResults() {
        
-         results = new ArrayList<EndingResult>();
+         results = new ArrayList<>();
     }
 
     public static ArrayList<EndingResult> getScores() {

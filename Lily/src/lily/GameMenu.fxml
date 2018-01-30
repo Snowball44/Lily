@@ -10,12 +10,67 @@
 
 <AnchorPane id="AnchorPane" prefHeight="595.0" prefWidth="842.0" style="-fx-background-image: url('Assets/gameMenu.png'); overflow: hidden; -fx-background-size: stretch;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lily.GameMenuController">
    <children>
-      <ImageView fx:id="legs" fitHeight="50.0" fitWidth="50.0" layoutX="660.0" layoutY="379.0" onMouseClicked="#legsAction" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="heartButton" fitHeight="50.0" fitWidth="50.0" layoutX="660.0" layoutY="175.0" onMouseClicked="#heartActon" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="brainButton" fitHeight="50.0" fitWidth="50.0" layoutX="660.0" layoutY="25.0" onMouseClicked="#brainAction" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="load" layoutX="640.0" layoutY="542.0" mnemonicParsing="false" onAction="#loadAction" text="Load Data" AnchorPane.bottomAnchor="25.0">
+      <ImageView fitHeight="595.0" fitWidth="842.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../Assets/gameMenu.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="legsView" fitHeight="50.0" fitWidth="50.0" layoutX="671.0" layoutY="377.0" onMouseClicked="#legsAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assets/unlocked.png" />
+         </image></ImageView>
+      <ImageView fx:id="heartView" fitHeight="50.0" fitWidth="50.0" layoutX="671.0" layoutY="175.0" onMouseClicked="#heartAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assets/unlocked.png" />
+         </image></ImageView>
+      <ImageView fx:id="brainView" fitHeight="50.0" fitWidth="50.0" layoutX="671.0" layoutY="25.0" onMouseClicked="#brainAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assets/unlocked.png" />
+         </image></ImageView>
+      <Label layoutX="47.0" layoutY="130.0" prefHeight="30.0" prefWidth="150.0" text="Leg system:" AnchorPane.leftAnchor="47.0" AnchorPane.topAnchor="120.0">
          <font>
-            <Font name="Helvetica Light" size="15.0" />
-         </font></Button>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="185.0" minHeight="30.0" prefHeight="25.0" prefWidth="150.0" text="Heart system:" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="380.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="298.0" prefHeight="25.0" prefWidth="150.0" text="Brain system:" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="250.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="57.0" layoutY="177.0" prefHeight="25.0" prefWidth="150.0" text="Transmission status:" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="280.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="298.0" prefHeight="25.0" prefWidth="150.0" text="Transmission status:" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="150.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="57.0" layoutY="177.0" prefHeight="25.0" prefWidth="150.0" text="Transmission status:" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="410.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="legCheck" layoutX="67.0" layoutY="187.0" prefHeight="25.0" prefWidth="150.0" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="200.0">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="brainCheck" layoutX="77.0" layoutY="197.0" prefHeight="25.0" prefWidth="150.0" textAlignment="CENTER" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="330.0">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="heartCheck" layoutX="87.0" layoutY="207.0" prefHeight="25.0" prefWidth="150.0" textAlignment="CENTER" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="460.0">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

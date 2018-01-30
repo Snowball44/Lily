@@ -8,6 +8,7 @@ package lily;
 import Game_data.GameFacade;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashSet;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -34,70 +36,109 @@ public class GameMenuController implements Initializable {
     static Scene scene;
 
     Parent root;
+    private Button heartButton;
+    private Button brainButton;
     @FXML
-    private ImageView heartButton;
+    private ImageView legsView;
     @FXML
-    private ImageView brainButton;
+    private ImageView heartView;
     @FXML
-    private ImageView legs;
+    private ImageView brainView;
     @FXML
-    private Button load;
+    private Label legCheck;
+    @FXML
+    private Label brainCheck;
+    @FXML
+    private Label heartCheck;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        loadCheck();
         // TODO
+    }
+
+    private void loadCheck() {
+        locked = new Image(getClass().getResource("/Assets/locked.png").toExternalForm());
+        unlocked = new Image(getClass().getResource("/Assets/unlocked.png").toExternalForm());
+        String u = "UNKNOWN";
+        String s = "SUCCES";
+        String f = "FAILED";
+
+        if (!facade.getCompleted("Legs") && !facade.getCompleted("brain") && !facade.getCompleted("Heart")) {
+            legsView.setImage(unlocked);
+            brainView.setImage(locked);
+            heartView.setImage(locked);
+        } else if (facade.getCompleted("Legs") && !facade.getCompleted("brain") && !facade.getCompleted("Heart")) {
+            legsView.setImage(locked);
+            brainView.setImage(unlocked);
+            heartView.setImage(locked);
+        } else /*(facade.getCompleted("Legs") && facade.getCompleted("brain") && !facade.getCompleted("Heart")) */ {
+            legsView.setImage(locked);
+            brainView.setImage(locked);
+            heartView.setImage(unlocked);
+        }
+
+        if (!facade.getCompleted("legs")) {
+            legCheck.setText(u);
+        }
+        if (!facade.getCompleted("brain")) {
+            brainCheck.setText(u);
+        }
+        if (!facade.getCompleted("heart")) {
+            heartCheck.setText(u);
+        }
+        if (facade.getCompleted("legs") && !facade.getWon("legs")) {
+            legCheck.setText(f);
+        }
+        if (!facade.getWon("brain") && facade.getWon("brain")) {
+            brainCheck.setText(f);
+        }
+        if (!facade.getWon("heart") && facade.getWon("heart")) {
+            heartCheck.setText(f);
+        }
+        if (facade.getWon("legs")) {
+            legCheck.setText(s);
+        }
+        if (facade.getWon("brain")) {
+            brainCheck.setText(s);
+        }
+        if (facade.getWon("heart")) {
+            heartCheck.setText(s);
+        }
+
+    }
+
+    public void changeScene(String newScene, ImageView button) throws IOException {
+        root = FXMLLoader.load(getClass().getResource(newScene + ".fxml"));
+        scene = button.getScene();
+        scene.setRoot(root);
     }
 
     @FXML
     private void legsAction(MouseEvent event) throws IOException {
         if (!facade.getCompleted("Legs") && !facade.getCompleted("Brain") && !facade.getCompleted("Heart")) {
-            changeScene("FXMLDocument", legs);
+            root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+            scene = legsView.getScene();
+            scene.setRoot(root);
+            
+            
         }
-
-    }
-
-    public void changeScene(String newScene, ImageView image) throws IOException {
-        root = FXMLLoader.load(getClass().getResource(newScene + ".fxml"));
-        scene = image.getScene();
-        scene.setRoot(root);
     }
 
     @FXML
-    private void heartActon(MouseEvent event) throws IOException {
+    private void heartAction(MouseEvent event) throws IOException {
         if (facade.getCompleted("Legs") && facade.getCompleted("Brain") && !facade.getCompleted("Heart")) {
-          changeScene("Hangman", heartButton);
+            changeScene("Hangman", heartView);
         }
-
     }
 
     @FXML
     private void brainAction(MouseEvent event) throws IOException {
         if (facade.getCompleted("Legs") && !facade.getCompleted("Brain") && !facade.getCompleted("Heart")) {
-            changeScene("VendeSpil", brainButton);
-        }
-    }
-
-    @FXML
-    private void loadAction(ActionEvent event) {
-
-        locked = new Image(getClass().getResource("/Assets/locked.png").toExternalForm());
-        unlocked = new Image(getClass().getResource("/Assets/unlocked.png").toExternalForm());
-        System.out.println(facade.getCompleted("Legs"));
-        if (!facade.getCompleted("Legs") && !facade.getCompleted("brain") && !facade.getCompleted("Heart")) {
-            legs.setImage(unlocked);
-            brainButton.setImage(locked);
-            heartButton.setImage(locked);
-        } else if (facade.getCompleted("Legs") && !facade.getCompleted("brain") && !facade.getCompleted("Heart")) {
-            legs.setImage(locked);
-            brainButton.setImage(unlocked);
-            heartButton.setImage(locked);
-        } else /*(facade.getCompleted("Legs") && facade.getCompleted("brain") && !facade.getCompleted("Heart")) */ {
-            legs.setImage(locked);
-            brainButton.setImage(locked);
-            heartButton.setImage(unlocked);
+            changeScene("VendeSpil", brainView);
         }
     }
 }
